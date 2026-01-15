@@ -1,0 +1,26 @@
+Реализовать поиск по товарам с фильтрами
+Реализовать HTTP-endpoint (например, GET /api/products), который возвращает список товаров с возможностью фильтрации и сортировки.
+
+У товара должны быть поля:
+* id
+* name (string, индекс по LIKE или FULLTEXT если захочешь)
+* price (decimal)
+* category_id (foreign key на таблицу categories)
+* in_stock (boolean)
+* rating (float, 0–5)
+* created_at
+* updated_at
+
+Фильтры (через query-параметры):
+* q — поиск по подстроке в name
+* price_from, price_to
+* category_id
+* in_stock (true/false)
+* rating_from
+
+Сортировка:
+параметр sort с допустимыми значениями: price_asc, price_desc, rating_desc, newest.
+
+Обязательна пагинация.
+
+/api/products?q=&price_from=100&price_to=1500&category_id=2&in_stock=true&rating_from=4&sort=price_desc&page=1

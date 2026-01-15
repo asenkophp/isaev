@@ -1,26 +1,26 @@
-ђеализовать поиск по товарам с фильтрами
-ђеализовать HTTP-endpoint (например, GET /api/products), который возвращает список товаров с возможностью фильтрации и сортировки.
+Р РµР°Р»РёР·РѕРІР°С‚СЊ РїРѕРёСЃРє РїРѕ С‚РѕРІР°СЂР°Рј СЃ С„РёР»СЊС‚СЂР°РјРё
+Р РµР°Р»РёР·РѕРІР°С‚СЊ HTTP-endpoint (РЅР°РїСЂРёРјРµСЂ, GET /api/products), РєРѕС‚РѕСЂС‹Р№ РІРѕР·РІСЂР°С‰Р°РµС‚ СЃРїРёСЃРѕРє С‚РѕРІР°СЂРѕРІ СЃ РІРѕР·РјРѕР¶РЅРѕСЃС‚СЊСЋ С„РёР»СЊС‚СЂР°С†РёРё Рё СЃРѕСЂС‚РёСЂРѕРІРєРё.
 
-“ товара должны быть полЯ:
+РЈ С‚РѕРІР°СЂР° РґРѕР»Р¶РЅС‹ Р±С‹С‚СЊ РїРѕР»СЏ:
 * id
-* name (string, индекс по LIKE или FULLTEXT если захочешь)
+* name (string, РёРЅРґРµРєСЃ РїРѕ LIKE РёР»Рё FULLTEXT РµСЃР»Рё Р·Р°С…РѕС‡РµС€СЊ)
 * price (decimal)
-* category_id (foreign key на таблицу categories)
+* category_id (foreign key РЅР° С‚Р°Р±Р»РёС†Сѓ categories)
 * in_stock (boolean)
-* rating (float, 0Р5)
+* rating (float, 0вЂ“5)
 * created_at
 * updated_at
 
-”ильтры (через query-параметры):
-* q С поиск по подстроке в name
+Р¤РёР»СЊС‚СЂС‹ (С‡РµСЂРµР· query-РїР°СЂР°РјРµС‚СЂС‹):
+* q вЂ” РїРѕРёСЃРє РїРѕ РїРѕРґСЃС‚СЂРѕРєРµ РІ name
 * price_from, price_to
 * category_id
 * in_stock (true/false)
 * rating_from
 
-‘ортировка:
-параметр sort с допустимыми значениЯми: price_asc, price_desc, rating_desc, newest.
+РЎРѕСЂС‚РёСЂРѕРІРєР°:
+РїР°СЂР°РјРµС‚СЂ sort СЃ РґРѕРїСѓСЃС‚РёРјС‹РјРё Р·РЅР°С‡РµРЅРёСЏРјРё: price_asc, price_desc, rating_desc, newest.
 
-ЋбЯзательна пагинациЯ.
+РћР±СЏР·Р°С‚РµР»СЊРЅР° РїР°РіРёРЅР°С†РёСЏ.
 
 /api/products?q=&price_from=100&price_to=1500&category_id=2&in_stock=true&rating_from=4&sort=price_desc&page=1
